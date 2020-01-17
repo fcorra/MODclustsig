@@ -1,5 +1,6 @@
-Package: mod_clustsig
-Version: 0.0
+Package: modclustsig
+Type: Package
+Version: 0.0.1
 Date: 2020-01-17
 Title: Modification of Significant Cluster Analysis
 Author: Fabio Corradini <fabio.corradini@wur.nl>
@@ -12,4 +13,5 @@ Description: A complimentary package for use with hclust; simprof tests
         Testing of null hypothesis in exploratory community analyses:
         similarity profiles and biota-environment linkage. J. Exp. Mar.
         Biol. Ecol. 366, 56-69.
-License: GPL (>= 2)
+License: GPL (>= 3)
+Encoding: UTF-8
