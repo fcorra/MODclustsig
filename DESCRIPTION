@@ -1,0 +1,15 @@
+Package: mod_clustsig
+Version: 0.0
+Date: 2020-01-17
+Title: Modification of Significant Cluster Analysis
+Author: Fabio Corradini <fabio.corradini@wur.nl>
+Maintainer: Fabio Corradini <fabio.corradini@wur.nl>
+Depends: R (>= 3.0.2)
+Description: A complimentary package for use with hclust; simprof tests
+        to see which (if any) clusters are statistically different. The
+        null hypothesis is that there is no a priori group structure.
+        See Clarke, K.R., Somerfield, P.J., and Gorley R.N. 2008.
+        Testing of null hypothesis in exploratory community analyses:
+        similarity profiles and biota-environment linkage. J. Exp. Mar.
+        Biol. Ecol. 366, 56-69.
+License: GPL (>= 2)
