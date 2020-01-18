@@ -99,6 +99,9 @@ simprof <- function(data, num.expected=1000, num.simulated=999,
       attr(rawdata.dist, "Labels") <- rownames(rawdata)
     }
   }
+  else if (method.distance == "hellinger"){
+    rawdata.dist <- hellinger(rawdata)
+  }
   else {
     rawdata.dist <- dist(rawdata, method=method.distance)
   }
@@ -110,11 +113,15 @@ simprof <- function(data, num.expected=1000, num.simulated=999,
   pMatrix <- cbind(hclust.results$merge, matrix(data = NA, nrow=nrow(hclust.results$merge), ncol=1))
   
   ### Namely one that includes a vector indicating which significant cluster each sample belongs to
-  simprof.results <- simprof.body(rawdata=rawdata, num.expected=num.expected, num.simulated=num.simulated, 
-                                  method.cluster=method.cluster, method.distance=method.distance, 
-                                  originaldata=rawdata, alpha=alpha, clust.order=hclust.results$merge, 
+  simprof.results <- simprof.body(rawdata=rawdata, num.expected=num.expected, 
+                                  num.simulated=num.simulated, 
+                                  method.cluster=method.cluster, 
+                                  method.distance=method.distance, 
+                                  originaldata=rawdata, alpha=alpha, 
+                                  clust.order=hclust.results$merge, 
                                   startrow=nrow(hclust.results$merge), pMatrix=pMatrix, 
-                                  const=const, silent=silent, increment=increment, undef.zero)
+                                  const=const, silent=silent, increment=increment, 
+                                  undef.zero=undef.zero)
   
   results <- list()
   results[["numgroups"]] <- length(simprof.results$samples) # number of significant groups

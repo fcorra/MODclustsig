@@ -45,7 +45,7 @@ setMethod("plot", c(x = "simprof", y = "missing"),
 #' @examples
 #' NULL
 simprof.plot <- function(results, leafcolors=NA, plot=TRUE, fill=TRUE, leaflab="perpendicular", siglinetype=1){
-  firstfind <- rep(TRUE, results$numgroups)
+  firstfind <- rep(TRUE, results@numgroups)
   colour <- local({
     colorizer <- function(i, siggroups, leafcolors, fill, siglinetype){
       #
@@ -81,7 +81,7 @@ simprof.plot <- function(results, leafcolors=NA, plot=TRUE, fill=TRUE, leaflab="
       i
     }
   })
-  siggroups <- results$significantclusters
+  siggroups <- results@significantclusters
   if (typeof(siglinetype) == "character"){ # not && to get rid of warning
     if (siglinetype == "different"){
       siglinetype <- rev(c(1:6)) # make it so that "solid" is used last.
@@ -107,12 +107,12 @@ simprof.plot <- function(results, leafcolors=NA, plot=TRUE, fill=TRUE, leaflab="
   }
   
   if (is.na(leafcolors[1]))
-    leafcolors <- rainbow(length(results$significantclusters))
+    leafcolors <- rainbow(length(results@significantclusters))
   else if (length(leafcolors) == 1)
     leafcolors <- rep(leafcolors[1], length(siggroups))
   
   
-  dend <- dendrapply(as.dendrogram(results$hclust), colour, siggroups=results$significantclusters, leafcolors=leafcolors, fill=fill, siglinetype=siglinetype)
+  dend <- dendrapply(as.dendrogram(results@hclust), colour, siggroups=results@significantclusters, leafcolors=leafcolors, fill=fill, siglinetype=siglinetype)
   if(plot)
     plot(dend, leaflab=leaflab)
   return(dend)

@@ -7,5 +7,6 @@
 #' @importFrom methods new setMethod
 #' @importFrom graphics plot
 #' @importFrom grDevices rainbow
+#' @importFrom utils combn
 #' @import stats
 NULL
