@@ -1,11 +1,29 @@
-Package: modclustsig
+Package: MODclustsig
 Type: Package
 Version: 0.0.1
 Date: 2020-01-17
 Title: Modification of Significant Cluster Analysis
-Author: Fabio Corradini <fabio.corradini@wur.nl>
-Maintainer: Fabio Corradini <fabio.corradini@wur.nl>
-Depends: R (>= 3.0.2)
+Authors@R: 
+    person(
+      given = "Fabio",
+      family = "Corradini",
+      role = c("aut", "cre"),
+      email = "fabio.corradini@inia.cl",
+      comment = c(ORCID = "0000-0001-9696-7643")
+    )
+Maintainer: Suggestions to <fabio.corradini@inia.cl>
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R (>= 3.4.4),
+    stats
+Imports:
+    Rcpp (>= 1.0.2),
+    methods,
+    grDevices
+LinkingTo: Rcpp, RcppArmadillo
+Roxygen: list(markdown = TRUE)
 Description: A complimentary package for use with hclust; simprof tests
         to see which (if any) clusters are statistically different. The
         null hypothesis is that there is no a priori group structure.
@@ -13,5 +31,14 @@ Description: A complimentary package for use with hclust; simprof tests
         Testing of null hypothesis in exploratory community analyses:
         similarity profiles and biota-environment linkage. J. Exp. Mar.
         Biol. Ecol. 366, 56-69.
-License: GPL (>= 3)
-Encoding: UTF-8
+RoxygenNote: 6.1.1
+Collate: 
+    'MODclustsig.R'
+    'RcppExports.R'
+    'classes.R'
+    'hellinger.R'
+    'simprof-dendrogram.R'
+    'simprof-internal.R'
+    'simprof.R'
+    'simprofbody.R'
+SystemRequirements: C++11

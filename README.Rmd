@@ -4,16 +4,19 @@ output: github_document
   
 <!-- README.md is generated from README.Rmd. Please edit that file -->
   
-# mod_clustsig
+# MODclustsig
   
-There must be so many errors in this approach that I don't recommend to anybody to use the package. It was a quick fix, to use clustsig to perform a SIMPROF with a given distance matrix (instead of using hclust).
+This package is a redistribution of the original [clustsig package](https://cran.r-project.org/web/packages/clustsig/index.html) written by [Douglas Whitaker](http://www.douglaswhitaker.com) and Mary Christman.
 
-For the same reason, I don't expect that anyone use this package but me. Anyways, you are free to use it if you want. I'll be available to answer any questions that you may have. But please, if you are not using the package to bypass the distance method, use the original version of the package.
+The changes I made were the following:
+
+1. I included the Hellinger Distance ("hellinger") as a method to calculate the distance matrix. In the original version of the package you can pass any function to the method.distance, but since we will need to work with Hellinger Distance quite often I thought that it was a good idea to have it included by default.
+2. The Hellinger Distance matrix is calculated in C++ to speed up the process a little bit. This means that the package now imports form Rcpp evalCpp.
+3. I made a class simprof to handle the result of the simprof function and implemented the simprof.plot as a method for this class (instead of just a function as before).
+
+Everything else remains the same. If you intend to use this redistribution for anything else but passing the Hellinger Distance to hclust, I think it would be better to use the package original versiona. Anyways, you are free to use it if you want. I'll be available to answer any questions that you may have.
   
-Since this is a mod, almost all the code come from the original version developed by [Douglas Whitaker](http://www.douglaswhitaker.com).
-It is available (and working great) at [CRAN](https://cran.r-project.org/web/packages/clustsig/index.html) 
-
-Thank you Douglas Whitaker! you save my day.
+Thank you Douglas Whitaker and Mary Christman, you save my day.
   
 ## Installation
   
