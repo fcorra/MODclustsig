@@ -3,7 +3,7 @@ hellinger <- function(x){
   x[is.na(x)] <- 0
   x <- sqrt(as.matrix(x))
   
-  if(is.null(names(x))){
+  if(is.null(rownames(x))){
     rownames(x) <- seq(1, nrow(x), by =1)
   }
   
@@ -22,6 +22,6 @@ hellinger <- function(x){
   
   # convert wide table to distance table object
   d <- as.dist(B[,-1], diag = FALSE)
-  attr(d, "Labels") <- B[, 1]
+  attr(d, "Labels") <- as.character(B[, 1])
   return(d)
 }
