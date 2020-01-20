@@ -1,5 +1,5 @@
 hellinger <- function(x){
-  # first set all NA to 0
+  
   x[is.na(x)] <- 0
   x <- sqrt(as.matrix(x))
   
@@ -7,21 +7,20 @@ hellinger <- function(x){
     rownames(x) <- seq(1, nrow(x), by =1)
   }
   
-  # create matrix of 2 subsets based on rownumber
-  # 1 first the diagonal with
-  D <- cbind(matrix(rep(1:nrow(x),each=2),nrow=2),combn(1:nrow(x), 2))
+  # Calculating the Hellinger distance matrix
+  D <- matrix(rep(NA), ncol = nrow(x), nrow = nrow(x))
+  combination <- combn(1:nrow(x), 2)
   
-  # create a dataframe with hellinger distances
-  B <- data.frame(first=rownames(x)[D[1,]],
-                  second=rownames(x)[D[2,]],
-                  distance=apply(D, 2, function(y) HellDist(x[ y,]))
-  )
+  apply(combination, 2,
+  function(tmp){
+    D[tmp[1], tmp[2]] <<- HellDist(x[tmp, ])
+  })
+
+  # Adding the zero diagonal
+  diag(D) <- 0
   
-  # reshape dataframe into a matrix with users on x and y axis
-  B <- reshape(B, direction="wide", idvar="second", timevar="first")
-  
-  # convert wide table to distance table object
-  d <- as.dist(B[,-1], diag = FALSE)
-  attr(d, "Labels") <- as.character(B[, 1])
-  return(d)
+  # Formating the output to distance table
+  d <- as.dist(t(D), diag = FALSE)
+  attr(d, "Labels") <- rownames(x)
+  d
 }
