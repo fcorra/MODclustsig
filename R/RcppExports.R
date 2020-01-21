@@ -5,3 +5,7 @@ HellDist <- function(X) {
     .Call(`_MODclustsig_HellDist`, X)
 }
 
+csam <- function(x, em) {
+    .Call(`_MODclustsig_csam`, x, em)
+}
+

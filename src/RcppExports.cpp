@@ -17,9 +17,22 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// csam
+arma::mat csam(arma::mat& x, arma::mat& em);
+RcppExport SEXP _MODclustsig_csam(SEXP xSEXP, SEXP emSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat& >::type x(xSEXP);
+    Rcpp::traits::input_parameter< arma::mat& >::type em(emSEXP);
+    rcpp_result_gen = Rcpp::wrap(csam(x, em));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_MODclustsig_HellDist", (DL_FUNC) &_MODclustsig_HellDist, 1},
+    {"_MODclustsig_csam", (DL_FUNC) &_MODclustsig_csam, 2},
     {NULL, NULL, 0}
 };
 
