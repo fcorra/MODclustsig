@@ -153,7 +153,7 @@ genSimilarityProfile <- function(rawdata.samples, method.distance, const, undef.
   else if (method.distance == "hellinger")
     rawdata.dist <- hellinger(rawdata.samples)
   else if (method.distance == "sam")
-    rawdata.sam <- sam(rawdata.samples)
+    rawdata.dist <- sam(rawdata.samples)
   else
     rawdata.dist <- dist(rawdata.samples, method.distance)
   rawdata.distvec <- as.vector(rawdata.dist)
