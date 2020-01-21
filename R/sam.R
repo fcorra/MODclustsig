@@ -1,5 +1,4 @@
 sam <- function(x){
-  x <- tmp
   x[is.na(x)] <- 0
   
   k <- csam(x, x)
