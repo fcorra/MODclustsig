@@ -152,6 +152,8 @@ genSimilarityProfile <- function(rawdata.samples, method.distance, const, undef.
     rawdata.dist <- braycurtis(preBCstandardization(rawdata.samples), const, undef.zero)
   else if (method.distance == "hellinger")
     rawdata.dist <- hellinger(rawdata.samples)
+  else if (method.distance == "sam")
+    rawdata.sam <- sam(rawdata.samples)
   else
     rawdata.dist <- dist(rawdata.samples, method.distance)
   rawdata.distvec <- as.vector(rawdata.dist)

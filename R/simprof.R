@@ -102,6 +102,9 @@ simprof <- function(data, num.expected=1000, num.simulated=999,
   else if (method.distance == "hellinger"){
     rawdata.dist <- hellinger(rawdata)
   }
+  else if (method.distance == "sam"){
+    rawdata.dist <- sam(rawdata)
+  }
   else {
     rawdata.dist <- dist(rawdata, method=method.distance)
   }
