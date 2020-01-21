@@ -31,12 +31,13 @@ Description: A complimentary package for use with hclust; simprof tests
         Testing of null hypothesis in exploratory community analyses:
         similarity profiles and biota-environment linkage. J. Exp. Mar.
         Biol. Ecol. 366, 56-69.
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 Collate: 
     'MODclustsig.R'
     'RcppExports.R'
     'classes.R'
     'hellinger.R'
+    'sam.R'
     'simprof-dendrogram.R'
     'simprof-internal.R'
     'simprof.R'

@@ -3,7 +3,6 @@
 \docType{package}
 \name{MODclustsig}
 \alias{MODclustsig}
-\alias{MODclustsig-package}
 \title{A mod of the package clustsig to include the Hellinger Distance as method}
 \description{
 A mod of the package clustsig to include the Hellinger Distance as method

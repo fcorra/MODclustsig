@@ -4,8 +4,14 @@
 \alias{simprof.plot}
 \title{Similarity Profile Analysis Dendrogram Plotter}
 \usage{
-simprof.plot(results, leafcolors = NA, plot = TRUE, fill = TRUE,
-  leaflab = "perpendicular", siglinetype = 1)
+simprof.plot(
+  results,
+  leafcolors = NA,
+  plot = TRUE,
+  fill = TRUE,
+  leaflab = "perpendicular",
+  siglinetype = 1
+)
 }
 \arguments{
 \item{results}{The object returned by \code{simprof}. It uses only the slots hclust and significantclusters.}

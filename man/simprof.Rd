@@ -4,11 +4,21 @@
 \alias{simprof}
 \title{simprof}
 \usage{
-simprof(data, num.expected = 1000, num.simulated = 999,
-  method.cluster = "average", method.distance = "euclidean",
-  method.transform = "identity", alpha = 0.05,
-  sample.orientation = "row", const = 0, silent = TRUE,
-  increment = 100, undef.zero = TRUE, warn.braycurtis = TRUE)
+simprof(
+  data,
+  num.expected = 1000,
+  num.simulated = 999,
+  method.cluster = "average",
+  method.distance = "euclidean",
+  method.transform = "identity",
+  alpha = 0.05,
+  sample.orientation = "row",
+  const = 0,
+  silent = TRUE,
+  increment = 100,
+  undef.zero = TRUE,
+  warn.braycurtis = TRUE
+)
 }
 \arguments{
 \item{data}{Input data in a matrix.}
